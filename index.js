@@ -16,7 +16,7 @@ module.exports = function(homebridge) {
 
 function getVal(config, key, defaultVal) {
     var val = config[key];
-    if (val === null) {
+    if (val === undefined) {
         return defaultVal;
     }
     return val;
@@ -111,11 +111,11 @@ RaspPiGPIOGarageDoorAccessory.prototype = {
   },
 
   hasOpenSensor : function() {
-    return this.openDoorSensorPin !== null;
+    return this.openDoorSensorPin !== undefined;
   },
 
   hasClosedSensor : function() {
-    return this.closedDoorSensorPin !== null;
+    return this.closedDoorSensorPin !== undefined;
   },
 
   initService: function() {
