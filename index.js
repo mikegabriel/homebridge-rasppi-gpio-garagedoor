@@ -144,6 +144,7 @@ RaspPiGPIOGarageDoorAccessory.prototype = {
     this.currentDoorState.updateValue(isClosed ? DoorState.CLOSED : DoorState.OPEN);
     this.targetDoorState.updateValue(isClosed ? DoorState.CLOSED : DoorState.OPEN);
 
+    rpio.init({mapping: 'gpio'})
     rpio.open(this.doorSwitchPin, rpio.OUTPUT, this.relayOff);
     if (this.hasClosedSensor()) {
       rpio.open(this.closedDoorSensorPin, rpio.INPUT);
